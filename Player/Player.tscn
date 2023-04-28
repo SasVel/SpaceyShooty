@@ -13,10 +13,7 @@ height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-<<<<<<< HEAD
-=======
 collision_mask = 5
->>>>>>> c24e5122ce4418cf912d03837f5931f73087da95
 script = ExtResource("1_tdke5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -9,19 +9,11 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1q8u6"]
-<<<<<<< HEAD
 radius = 8.0
-=======
-radius = 6.0
->>>>>>> c24e5122ce4418cf912d03837f5931f73087da95
 height = 18.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
-<<<<<<< HEAD
-=======
-collision_mask = 3
->>>>>>> c24e5122ce4418cf912d03837f5931f73087da95
 script = ExtResource("1_5lwa6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
