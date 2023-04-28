@@ -8,6 +8,5 @@ func _process(delta):
 	if self.position.y < 0:
 		queue_free()
 
-
 func _on_hit_box_body_entered(_body):
 	queue_free()
