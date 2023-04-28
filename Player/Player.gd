@@ -9,7 +9,7 @@ var CURR_SPEED = SPEED
 
 @onready var input_direction = Vector2.ZERO
 @onready var input_vector = Vector2.ZERO
-
+@onready var Bullet = preload("res://Bullets/Bullet.tscn")
 
 func _physics_process(delta):
 	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -24,5 +24,14 @@ func _physics_process(delta):
 		velocity = input_vector
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, (FRICTION * delta) * 8)
-		
+	
+	shoot_bullet()
 	move_and_slide()
+
+func shoot_bullet():
+	var shoot_input = Input.is_action_just_pressed("shoot")
+	
+	if	shoot_input:
+		var new_bullet = Bullet.instantiate()
+		new_bullet.global_position = self.global_position
+		self.add_child(new_bullet)
