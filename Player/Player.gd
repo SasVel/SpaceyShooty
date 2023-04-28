@@ -35,5 +35,3 @@ func shoot_bullet():
 		var new_bullet = Bullet.instantiate()
 		new_bullet.global_position = self.global_position + Vector2(0, -12)
 		get_tree().get_root().add_child(new_bullet)		
-		new_bullet.global_position = self.global_position
-		self.add_child(new_bullet)
