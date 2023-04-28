@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://doq6a3pjwvbrr"]
+
+[ext_resource type="Script" path="res://Background/Background.gd" id="1_ayc8m"]
+[ext_resource type="Texture2D" uid="uid://q11xnt15kkxp" path="res://Background/space4_4-frames.png" id="1_cikuk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvbw0"]
+texture = ExtResource("1_cikuk")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bahy5"]
+sources/0 = SubResource("TileSetAtlasSource_uvbw0")
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_ayc8m")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 320)
+
+[node name="BackgroundTiles" type="TileMap" parent="ParallaxLayer"]
+tile_set = SubResource("TileSet_bahy5")
+cell_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65541, 0, 0, 131080, 0, 0, 65545, 0, 0, 196609, 0, 0, 327684, 0, 0, 458754, 0, 0, 458753, 0, 0, 393224, 0, 0, 524293, 0, 0, 262154, 0, 0, 458763, 0, 0, 65548, 0, 0, 262156, 0, 0, 655368, 0, 0, 655372, 0, 0, 524301, 0, 0, 655375, 0, 0, 655378, 0, 0, 393234, 0, 0, 327696, 0, 0, 393233, 0, 0, 65552, 0, 0, 20, 0, 0, 196628, 0, 0, 589827, 0, 0, 589829, 0, 0, 655360, 0, 0, 458772, 0, 0, 655364, 0, 0, 524288, 0, 0, 327680, 0, 0, 65536, 0, 0, 16, 0, 0, 0, 0, 0, 4, 0, 0, 8, 0, 0, 12, 0, 0, 655380, 0, 0, -262144, 0, 0, -131062, 0, 0, -262133, 0, 0, -393216, 0, 0, -393205, 0, 0, -393202, 0, 0, -393199, 0, 0, -393196, 0, 0, -262124, 0, 0, -131056, 0, 0, -131058, 0, 0, -196602, 0, 0, -196605, 0, 0, -262139, 0, 0, -393209, 0, 0, -393212, 0, 0)
