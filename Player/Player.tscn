@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_tdke5"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="2_usybj"]
 [ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_bh363"]
-[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="5_xa5jm"]
+[ext_resource type="PackedScene" uid="uid://bfpi6ejntfkqj" path="res://Player/PlayerStats.tscn" id="5_pstsi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kb7l"]
 radius = 7.07107
@@ -48,11 +48,10 @@ damage = 100
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ygclr")
 
-[node name="Stats" parent="." instance=ExtResource("5_xa5jm")]
-max_health = 10
+[node name="PlayerStats" parent="." instance=ExtResource("5_pstsi")]
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+[connection signal="no_health" from="PlayerStats" to="." method="_on_player_stats_no_health"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

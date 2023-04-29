@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d30rhm4g6uen7"]
+[gd_scene load_steps=6 format=3 uid="uid://d30rhm4g6uen7"]
 
 [ext_resource type="PackedScene" uid="uid://doq6a3pjwvbrr" path="res://Background/Background.tscn" id="1_p2lhn"]
 [ext_resource type="PackedScene" uid="uid://cdnujfijyvhq7" path="res://Player/Player.tscn" id="2_odifb"]
 [ext_resource type="PackedScene" uid="uid://hs42483asuj1" path="res://Enemies/EnemySpawner.tscn" id="4_c8bh6"]
 [ext_resource type="PackedScene" uid="uid://gil6g8c814l2" path="res://UI/ScoreUI/ScoreUI.tscn" id="4_l72rr"]
+[ext_resource type="PackedScene" uid="uid://duj6bmn627nsk" path="res://UI/HealthUI/HealthUI.tscn" id="5_gqmsq"]
 
 [node name="Main" type="Node2D"]
 
@@ -20,3 +21,5 @@ position = Vector2(163, 160)
 layer = 100
 
 [node name="ScoreUI" parent="CanvasLayer" instance=ExtResource("4_l72rr")]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("5_gqmsq")]
