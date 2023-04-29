@@ -5,8 +5,9 @@ extends Control
 func _ready():
 	healthBar.max_value = PlayerStats.max_health
 	healthBar.value = PlayerStats.health
+	PlayerStats.changed_health.connect(on_changed_health)
 
-func _process(_delta):
-	healthBar.value = PlayerStats.health
-	print(PlayerStats.health)
-
+func on_changed_health(val):
+	healthBar.value = val
+	print(healthBar.value)
+	

@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfpi6ejntfkqj"]
+[gd_scene load_steps=3 format=3 uid="uid://bfpi6ejntfkqj"]
 
 [ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="1_km1ak"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="2_yo8j3"]
 
 [node name="PlayerStats" instance=ExtResource("1_km1ak")]
+script = ExtResource("2_yo8j3")

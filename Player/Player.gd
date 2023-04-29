@@ -10,7 +10,8 @@ var CURR_SPEED = SPEED
 @onready var input_direction = Vector2.ZERO
 @onready var input_vector = Vector2.ZERO
 @onready var Bullet = preload("res://Bullets/Bullet.tscn")
-@onready var stats = $PlayerStats
+func _ready():
+	PlayerStats.no_health.connect(_on_player_stats_no_health)	
 
 func _physics_process(delta):
 	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -38,7 +39,7 @@ func shoot_bullet():
 		get_tree().get_root().add_child(new_bullet)		
 
 func _on_hurt_box_area_entered(area):
-	stats.health -= area.damage
+	PlayerStats.health -= area.damage
 	
 func _on_player_stats_no_health():
 	get_tree().paused = true
