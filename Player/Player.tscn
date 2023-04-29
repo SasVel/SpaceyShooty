@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdnujfijyvhq7"]
+[gd_scene load_steps=9 format=3 uid="uid://cdnujfijyvhq7"]
 
 [ext_resource type="Texture2D" uid="uid://1eo4hgic1730" path="res://Player/PlayerSprite.png" id="1_hgw2x"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_tdke5"]
 [ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="2_usybj"]
+[ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="4_bh363"]
+[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="5_xa5jm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kb7l"]
 radius = 7.07107
@@ -11,9 +13,12 @@ radius = 7.07107
 radius = 6.0
 height = 18.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygclr"]
+radius = 6.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_tdke5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,10 +32,27 @@ shape = SubResource("CircleShape2D_3kb7l")
 
 [node name="HurtBox" parent="." instance=ExtResource("2_usybj")]
 collision_layer = 8
-collision_mask = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_dq7du")
 
+[node name="HitBox" parent="." instance=ExtResource("4_bh363")]
+collision_layer = 2
+collision_mask = 16
+collision_priority = 4.0
+damage = 100
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ygclr")
+
+[node name="Stats" parent="." instance=ExtResource("5_xa5jm")]
+max_health = 10
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
 [editable path="HurtBox"]
+[editable path="HitBox"]

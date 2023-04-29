@@ -14,6 +14,10 @@ config/name="SpaceyShooty"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 
+[autoload]
+
+ScoreboardInfo="*res://ScoreboardInfo.tscn"
+
 [display]
 
 window/size/viewport_width=320
