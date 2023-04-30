@@ -3,7 +3,7 @@ extends Node2D
 signal no_health
 signal changed_health(val)
 
-@onready var max_health = 10
+@export var max_health = 1
 var health : set = set_health
  
 func _ready():

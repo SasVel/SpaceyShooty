@@ -5,3 +5,4 @@
 
 [node name="PlayerStats" instance=ExtResource("1_km1ak")]
 script = ExtResource("2_yo8j3")
+max_health = 10

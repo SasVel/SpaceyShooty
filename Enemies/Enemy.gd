@@ -11,7 +11,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_hurt_box_area_entered(area):
-	stats.health -= area.damage
+	stats.health -= area.damage 
 	
 func _on_stats_no_health():
 	ScoreboardInfo.score += scoreOnDeath
