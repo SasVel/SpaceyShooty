@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d30rhm4g6uen7"]
+[gd_scene load_steps=10 format=3 uid="uid://d30rhm4g6uen7"]
 
 [ext_resource type="PackedScene" uid="uid://doq6a3pjwvbrr" path="res://Background/Background.tscn" id="1_p2lhn"]
 [ext_resource type="PackedScene" uid="uid://cdnujfijyvhq7" path="res://Player/Player.tscn" id="2_odifb"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://duj6bmn627nsk" path="res://UI/HealthUI/HealthUI.tscn" id="5_gqmsq"]
 [ext_resource type="PackedScene" uid="uid://cegjlefmdss8" path="res://UI/PauseUI/PauseUI.tscn" id="6_5ou4t"]
 [ext_resource type="PackedScene" uid="uid://c7pl5lp5xye2x" path="res://UI/GameOverUI/GameOverUI.tscn" id="7_p0e5r"]
+[ext_resource type="Shape2D" uid="uid://c7iu2jylbbydm" path="res://World/vertical_border_shape.tres" id="8_hia6c"]
+[ext_resource type="Shape2D" uid="uid://ddh3bt2vy2m5" path="res://World/horizontal_border_shape.tres" id="9_65n6i"]
 
 [node name="Main" type="Node2D"]
 
@@ -29,3 +31,39 @@ layer = 100
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("6_5ou4t")]
 
 [node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("7_p0e5r")]
+
+[node name="Borders" type="Node2D" parent="."]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-3.50759, 90.0197)
+shape = ExtResource("8_hia6c")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(323.5, 90)
+shape = ExtResource("8_hia6c")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(93, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(67, -2)
+scale = Vector2(1.695, 1.695)
+shape = ExtResource("9_65n6i")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(93, 0)
+rotation = 3.14159
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(-67, -182)
+scale = Vector2(1.695, 1.695)
+shape = ExtResource("9_65n6i")

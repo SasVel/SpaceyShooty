@@ -15,6 +15,7 @@ func _on_hurt_box_area_entered(area):
 	
 func _on_stats_no_health():
 	ScoreboardInfo.score += scoreOnDeath
+	PlayerStats.enemiesKilled += 1
 	queue_free()
 
 

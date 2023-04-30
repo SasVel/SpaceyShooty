@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfpi6ejntfkqj" path="res://Player/PlayerStats.tscn" id="5_pstsi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kb7l"]
-radius = 7.07107
+radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dq7du"]
 radius = 6.0
@@ -26,7 +26,6 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_hgw2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_3kb7l")
 
