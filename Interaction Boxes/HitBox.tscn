@@ -6,3 +6,4 @@
 script = ExtResource("1_swvva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(1, 1, 0.188235, 1)

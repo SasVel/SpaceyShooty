@@ -13,7 +13,6 @@ func on_no_health():
 	
 	scoreLabel.text = "SCORE " + str(ScoreboardInfo.score)
 	enemiesKilledLabel.text = "ENEMIES KILLED " + str(PlayerStats.enemiesKilled)
-	print(PlayerStats.enemiesKilled)
 	
 	self.visible = true
 

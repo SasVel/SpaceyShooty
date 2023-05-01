@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://bixiu8stlrve"]
+
+[ext_resource type="Script" path="res://World/Asteroids/Asteroid.gd" id="1_g2hio"]
+[ext_resource type="Texture2D" uid="uid://chtx8otxbysqf" path="res://World/Asteroids/Asteroid_small.png" id="1_lb87p"]
+[ext_resource type="PackedScene" uid="uid://c485f0w3fc2fr" path="res://Interaction Boxes/HitBox.tscn" id="3_vwioy"]
+[ext_resource type="PackedScene" uid="uid://ye6sscbkfm3t" path="res://Interaction Boxes/HurtBox.tscn" id="4_svp2p"]
+[ext_resource type="PackedScene" uid="uid://cm5wfph8jbxdj" path="res://Stats/Stats.tscn" id="5_1i0jv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vuty"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3553g"]
+radius = 25.02
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvbwf"]
+radius = 12.0
+
+[node name="AsteroidSmall" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_g2hio")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_lb87p")
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_2vuty")
+
+[node name="ExplosionHitBox" parent="." instance=ExtResource("3_vwioy")]
+collision_layer = 0
+collision_mask = 30
+
+[node name="CollisionShape2D" parent="ExplosionHitBox" index="0"]
+shape = SubResource("CircleShape2D_3553g")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_svp2p")]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+modulate = Color(1, 0.847059, 0.819608, 1)
+shape = SubResource("CircleShape2D_uvbwf")
+
+[node name="Stats" parent="." instance=ExtResource("5_1i0jv")]
+max_health = 3
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
+[editable path="ExplosionHitBox"]
+[editable path="HurtBox"]

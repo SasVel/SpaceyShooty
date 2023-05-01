@@ -23,6 +23,9 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_5lwa6")
 
+[node name="Stats" parent="." instance=ExtResource("4_trevu")]
+max_health = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
 scale = Vector2(0.75, 0.75)
@@ -35,7 +38,7 @@ shape = SubResource("CapsuleShape2D_kt7ho")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_ncb87")]
 collision_layer = 16
-collision_mask = 2
+collision_mask = 34
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, -2)
@@ -49,11 +52,8 @@ collision_mask = 8
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_wq48j")
 
-[node name="Stats" parent="." instance=ExtResource("4_trevu")]
-max_health = 2
-
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]

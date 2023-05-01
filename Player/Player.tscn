@@ -21,6 +21,8 @@ height = 18.0
 collision_layer = 2
 script = ExtResource("1_tdke5")
 
+[node name="PlayerStats" parent="." instance=ExtResource("5_pstsi")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_hgw2x")
@@ -47,10 +49,12 @@ damage = 100
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ygclr")
 
-[node name="PlayerStats" parent="." instance=ExtResource("5_pstsi")]
+[node name="ShootCooldown" type="Timer" parent="."]
+wait_time = 0.3
 
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="no_health" from="PlayerStats" to="." method="_on_player_stats_no_health"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
 
 [editable path="HurtBox"]
 [editable path="HitBox"]
