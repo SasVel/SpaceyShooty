@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi5kbpxlh8134"]
+[gd_scene load_steps=4 format=3 uid="uid://bi5kbpxlh8134"]
 
 [ext_resource type="PackedScene" uid="uid://bixiu8stlrve" path="res://World/Asteroids/Asteroid_small.tscn" id="1_b61rj"]
+[ext_resource type="PackedScene" uid="uid://bnvaryoi0a5db" path="res://Effects/Explosion_2/Explosion_2.tscn" id="2_5gfoh"]
 [ext_resource type="Texture2D" uid="uid://xmvl2gcnso7h" path="res://World/Asteroids/Asteroid_big.png" id="2_xfmb1"]
 
 [node name="AsteoridBig" instance=ExtResource("1_b61rj")]
 speed = 190
 scoreOnDeath = 200
+DeathEffect = ExtResource("2_5gfoh")
 
 [node name="MainSprite" parent="." index="0"]
 texture = ExtResource("2_xfmb1")
