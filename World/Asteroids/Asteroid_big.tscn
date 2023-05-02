@@ -5,6 +5,7 @@
 
 [node name="AsteoridBig" instance=ExtResource("1_b61rj")]
 speed = 190
+scoreOnDeath = 200
 
 [node name="MainSprite" parent="." index="0"]
 texture = ExtResource("2_xfmb1")

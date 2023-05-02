@@ -27,6 +27,7 @@ func _on_stats_no_health():
 		else:
 			e.queue_free()
 			
+	ScoreboardInfo.score += scoreOnDeath
 	create_death_explosion()
 	queue_free()
 
