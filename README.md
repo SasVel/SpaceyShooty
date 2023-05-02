@@ -2,7 +2,7 @@
 
 A simple space-themed shooter game.
 
-<h3><a href="[https://github.com/SasVel/SpaceyShooty/blob/master/SpaceyShooty.rar](https://github.com/SasVel/SpaceyShooty/raw/master/SpaceyShooty.rar)">Download</a></h3>
+<h3><a href="https://github.com/SasVel/SpaceyShooty/raw/master/SpaceyShooty.rar">Download</a></h3>
 
 <h3>Asset Resources<h3/>
 <hr/>
