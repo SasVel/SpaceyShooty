@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5kbpxlh8134"]
+
+[ext_resource type="PackedScene" uid="uid://bixiu8stlrve" path="res://World/Asteroids/Asteroid_small.tscn" id="1_b61rj"]
+[ext_resource type="Texture2D" uid="uid://xmvl2gcnso7h" path="res://World/Asteroids/Asteroid_big.png" id="2_xfmb1"]
+
+[node name="AsteoridBig" instance=ExtResource("1_b61rj")]
+speed = 190
+
+[node name="MainSprite" parent="." index="0"]
+texture = ExtResource("2_xfmb1")
+
+[node name="ExplosionHitBox" parent="." index="2"]
+damage = 5
+
+[node name="Stats" parent="." index="4"]
+max_health = 5
+
+[editable path="ExplosionHitBox"]
+[editable path="HurtBox"]

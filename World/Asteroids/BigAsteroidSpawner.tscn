@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnsks3rdnac6b"]
+
+[ext_resource type="PackedScene" uid="uid://dtal5n2xd1n7u" path="res://World/EntitySpawner.tscn" id="1_c46sg"]
+[ext_resource type="PackedScene" uid="uid://bi5kbpxlh8134" path="res://World/Asteroids/Asteroid_big.tscn" id="2_slym5"]
+
+[node name="BigAsteroidSpawner" instance=ExtResource("1_c46sg")]
+Entity = ExtResource("2_slym5")
+
+[node name="SpawnTimer" parent="." index="0"]
+wait_time = 6.0

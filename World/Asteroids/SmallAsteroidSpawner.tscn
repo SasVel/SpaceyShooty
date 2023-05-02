@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ly4pl3b1lnk"]
+
+[ext_resource type="PackedScene" uid="uid://dtal5n2xd1n7u" path="res://World/EntitySpawner.tscn" id="1_f6yg0"]
+[ext_resource type="PackedScene" uid="uid://bixiu8stlrve" path="res://World/Asteroids/Asteroid_small.tscn" id="2_w23m8"]
+
+[node name="SmallAsteroidSpawner" instance=ExtResource("1_f6yg0")]
+Entity = ExtResource("2_w23m8")
+
+[node name="SpawnTimer" parent="." index="0"]
+wait_time = 3.0

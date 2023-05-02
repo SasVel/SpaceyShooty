@@ -1,17 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hs42483asuj1"]
+[gd_scene load_steps=3 format=3 uid="uid://deo7tg4ab4236"]
 
-[ext_resource type="Script" path="res://Enemies/EnemySpawner.gd" id="1_4plwv"]
+[ext_resource type="PackedScene" uid="uid://dtal5n2xd1n7u" path="res://World/EntitySpawner.tscn" id="1_caj7c"]
+[ext_resource type="PackedScene" uid="uid://bcd4r1tgrj2vc" path="res://Enemies/Enemy.tscn" id="2_qei0g"]
 
-[node name="EnemySpawner" type="Node2D"]
-script = ExtResource("1_4plwv")
-
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[node name="SpawnRateIncreaseTimer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
-
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="SpawnRateIncreaseTimer" to="." method="_on_spawn_rate_increase_timer_timeout"]
+[node name="EnemySpawner" instance=ExtResource("1_caj7c")]
+Entity = ExtResource("2_qei0g")

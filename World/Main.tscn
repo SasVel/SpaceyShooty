@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://cu6hnjiiblbv8"]
+
+[ext_resource type="PackedScene" uid="uid://doq6a3pjwvbrr" path="res://Background/Background.tscn" id="1_wxnjt"]
+[ext_resource type="PackedScene" uid="uid://deo7tg4ab4236" path="res://Enemies/EnemySpawner.tscn" id="2_hpijq"]
+[ext_resource type="PackedScene" uid="uid://cdnujfijyvhq7" path="res://Player/Player.tscn" id="3_uj8o4"]
+[ext_resource type="PackedScene" uid="uid://gil6g8c814l2" path="res://UI/ScoreUI/ScoreUI.tscn" id="4_f4jto"]
+[ext_resource type="PackedScene" uid="uid://duj6bmn627nsk" path="res://UI/HealthUI/HealthUI.tscn" id="5_w4j61"]
+[ext_resource type="PackedScene" uid="uid://cegjlefmdss8" path="res://UI/PauseUI/PauseUI.tscn" id="6_h5nq1"]
+[ext_resource type="PackedScene" uid="uid://c7pl5lp5xye2x" path="res://UI/GameOverUI/GameOverUI.tscn" id="7_661of"]
+[ext_resource type="Shape2D" uid="uid://c7iu2jylbbydm" path="res://World/vertical_border_shape.tres" id="8_n3atk"]
+[ext_resource type="Shape2D" uid="uid://ddh3bt2vy2m5" path="res://World/horizontal_border_shape.tres" id="9_uv62f"]
+[ext_resource type="PackedScene" uid="uid://c2ly4pl3b1lnk" path="res://World/Asteroids/SmallAsteroidSpawner.tscn" id="10_8cqlw"]
+[ext_resource type="PackedScene" uid="uid://bnsks3rdnac6b" path="res://World/Asteroids/BigAsteroidSpawner.tscn" id="10_xg4ql"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_wxnjt")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ScoreUI" parent="CanvasLayer" instance=ExtResource("4_f4jto")]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("5_w4j61")]
+
+[node name="PauseUI" parent="CanvasLayer" instance=ExtResource("6_h5nq1")]
+
+[node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("7_661of")]
+
+[node name="Borders" type="Node2D" parent="."]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-3.50759, 90.0197)
+shape = ExtResource("8_n3atk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(323.5, 90)
+shape = ExtResource("8_n3atk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(93, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(67, -2)
+scale = Vector2(1.695, 1.695)
+shape = ExtResource("9_uv62f")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(93, 0)
+rotation = 3.14159
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(-67, -182)
+scale = Vector2(1.695, 1.695)
+shape = ExtResource("9_uv62f")
+
+[node name="Player" parent="." instance=ExtResource("3_uj8o4")]
+position = Vector2(160, 159)
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="SmallAsteroidSpawner" parent="Spawners" instance=ExtResource("10_8cqlw")]
+
+[node name="BigAsteroidSpawner" parent="Spawners" instance=ExtResource("10_xg4ql")]
+
+[node name="EnemySpawner" parent="Spawners" instance=ExtResource("2_hpijq")]

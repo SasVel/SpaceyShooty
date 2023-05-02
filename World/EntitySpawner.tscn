@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtal5n2xd1n7u"]
+
+[ext_resource type="Script" path="res://Misc Scripts/Spawner.gd" id="1_0dadk"]
+
+[node name="EntitySpawner" type="Node2D"]
+script = ExtResource("1_0dadk")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="SpawnRateIncreaseTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnRateIncreaseTimer" to="." method="_on_spawn_rate_increase_timer_timeout"]
