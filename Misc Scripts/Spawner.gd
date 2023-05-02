@@ -4,10 +4,18 @@ extends Node2D
 @onready var rng = RandomNumberGenerator.new()
 @onready var spawnTimer = $SpawnTimer
 @onready var spawnRateIncreaseTimer = $SpawnRateIncreaseTimer
+var spawnWidth = 320
 
 func _on_timer_timeout():
 	var newEntity = Entity.instantiate()
-	var randPos = rng.randi_range(0, 320)
+	var randPos = rng.randi_range(0, spawnWidth)
+	
+	if GlobalInfo.lastSpawnPos != null :
+		while !(GlobalInfo.lastSpawnPos + 10 > randPos || GlobalInfo.lastSpawnPos - 10 < randPos):
+			randPos = rng.randi_range(0, spawnWidth)
+	
+	GlobalInfo.lastSpawnPos = randPos
+	print(GlobalInfo.lastSpawnPos)
 	newEntity.position = Vector2(randPos, -10)
 	newEntity.global_rotation = 3.141
 	get_tree().get_root().add_child(newEntity)

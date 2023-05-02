@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 
 ScoreboardInfo="*res://ScoreboardInfo.tscn"
 PlayerStats="*res://Player/PlayerStats.tscn"
+GlobalInfo="*res://GlobalInfo.tscn"
 
 [display]
 
