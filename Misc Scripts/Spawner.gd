@@ -15,7 +15,6 @@ func _on_timer_timeout():
 			randPos = rng.randi_range(0, spawnWidth)
 	
 	GlobalInfo.lastSpawnPos = randPos
-	print(GlobalInfo.lastSpawnPos)
 	newEntity.position = Vector2(randPos, -10)
 	newEntity.global_rotation = 3.141
 	get_tree().get_root().add_child(newEntity)
