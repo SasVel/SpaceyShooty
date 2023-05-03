@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://caxf1suiiqtk"]
+
+[ext_resource type="Texture2D" uid="uid://q11xnt15kkxp" path="res://Background/space4_4-frames.png" id="1_5l7lb"]
+[ext_resource type="Script" path="res://UI/MainMenuUI/MainMenuUI.gd" id="1_vf1jv"]
+[ext_resource type="FontFile" uid="uid://b6c557pbj4xo1" path="res://Font/PIXBOB LITE.ttf" id="3_rpppi"]
+[ext_resource type="PackedScene" uid="uid://b17441rik8xi8" path="res://UI/SilverButton/SilverButton.tscn" id="4_5ci45"]
+[ext_resource type="Script" path="res://UI/ColorBlinkingText.gd" id="4_ulect"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvbw0"]
+texture = ExtResource("1_5l7lb")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wppcl"]
+sources/0 = SubResource("TileSetAtlasSource_uvbw0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w36uf"]
+line_spacing = 0.0
+font = ExtResource("3_rpppi")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vf1jv")
+
+[node name="BackgroundTiles" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wppcl")
+cell_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65541, 0, 0, 131080, 0, 0, 65545, 0, 0, 196609, 0, 0, 327684, 0, 0, 458754, 0, 0, 458753, 0, 0, 393224, 0, 0, 524293, 0, 0, 262154, 0, 0, 458763, 0, 0, 65548, 0, 0, 262156, 0, 0, 524301, 0, 0, 393234, 0, 0, 327696, 0, 0, 393233, 0, 0, 65552, 0, 0, 589827, 0, 0, 589829, 0, 0, 131090, 0, 0, 65554, 0, 0, 589842, 0, 0, 589838, 0, 0, 589834, 0, 0, 589833, 0, 0, 589825, 0, 0)
+
+[node name="MainText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_top = 23.0
+offset_right = 42.5
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "SPACEY
+         SHOOTY"
+label_settings = SubResource("LabelSettings_w36uf")
+script = ExtResource("4_ulect")
+ColorHex = "#823de3"
+
+[node name="BlinkTimer" type="Timer" parent="MainText"]
+autostart = true
+
+[node name="PlayBtn" parent="." instance=ExtResource("4_5ci45")]
+layout_mode = 1
+offset_left = -23.0
+offset_top = -18.0
+offset_right = 25.0
+offset_bottom = -2.0
+
+[node name="Label" parent="PlayBtn" index="0"]
+text = "PLAY"
+
+[node name="CreditsBtn" parent="." instance=ExtResource("4_5ci45")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 137.0
+offset_top = 96.0
+offset_right = 185.0
+offset_bottom = 112.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" parent="CreditsBtn" index="0"]
+text = "CREDITS"
+
+[connection signal="timeout" from="MainText/BlinkTimer" to="MainText" method="_on_blink_timer_timeout"]
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
+
+[editable path="PlayBtn"]
+[editable path="CreditsBtn"]

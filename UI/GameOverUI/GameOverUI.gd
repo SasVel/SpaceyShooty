@@ -16,8 +16,12 @@ func on_no_health():
 	
 	self.visible = true
 
-func _on_texture_button_pressed():
+func _on_restart_btn_pressed():
 	get_tree().reload_current_scene()
 	ScoreboardInfo.score = 0
 	PlayerStats.health = PlayerStats.max_health
 	get_tree().paused = false
+
+
+func _on_backbtn_pressed():
+	get_tree().change_scene_to_file("res://UI/MainMenuUI/MainMenuUI.tscn")
