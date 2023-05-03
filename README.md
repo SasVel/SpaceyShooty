@@ -11,6 +11,5 @@ A simple space-themed shooter game.
   <li><a href="https://kenney.itch.io/ship-mixer">Ship mixer</a></li>
   <li><a href="https://piiixl.itch.io/space">Space background</a></li>
   <li><a href="https://arcadeisland.itch.io/space-shooter-wang-tiles">Asteroid assets</a></li>
-  <li><a href="https://arcadeisland.itch.io/space-shooter-wang-tiles">Asteroid assets</a></li>
 </ul>
 
